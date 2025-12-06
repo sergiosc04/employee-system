@@ -4,12 +4,15 @@ interface Evaluable{
     fun evaluatePerformance(): Unit
 }
 
+//Clase abstracta que sera usada en las demas
 abstract class Employee(val name: String, val salary: Double) : Evaluable{
 
     abstract fun work()
     abstract fun calculateAnnualBonus(): Double
+
+    //funcion ya definida
     fun details(){
-        println("Detalles del empleado\n nombre: $name, salario: $salary")
+        println("Detalles del empleado\nnombre: $name, salario: $salary")
     }
 }
 
@@ -19,7 +22,7 @@ class Developer (name: String, salary: Double) : Employee(name, salary) {
     }
 
     override fun calculateAnnualBonus(): Double {
-        return salary*100/10
+        return salary*(20.0/100)
     }
 
     override fun evaluatePerformance(): Unit {
@@ -27,19 +30,18 @@ class Developer (name: String, salary: Double) : Employee(name, salary) {
     }
 }
 
-
 class Manager (name: String, salary: Double) : Employee(name, salary) {
     override fun work() {
         println("Manager $name trabaja con salario de $salary")
     }
 
     override fun calculateAnnualBonus(): Double {
-        return salary*100/20
+        return salary*(20.0/100)
     }
 
 
     override fun evaluatePerformance(): Unit {
-        println("El manager trabaja aceptable")
+        println("El manager trabaja regular")
     }
 }
 
@@ -49,7 +51,7 @@ class Designer (name: String, salary: Double) : Employee(name, salary) {
     }
 
     override fun calculateAnnualBonus(): Double {
-        return salary*100/15
+        return salary*(15.0/100)
     }
 
     override fun evaluatePerformance(): Unit {
